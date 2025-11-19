@@ -2,5 +2,5 @@
 if __name__ == "__main__":
     from main import my_list
     for i in my_list:
-        print(i)
+        print("{}".format(i))
 
