@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 import sys
-
-
 def main():
     arg_list = sys.argv[1:]
     if arg_list:
@@ -13,5 +11,7 @@ def main():
             print(f"{index+1}: {l}")
     else:
         print("0 arguments.")
+
+
 if __name__ == "__main__":
     main()
