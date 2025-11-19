@@ -1,0 +1,6 @@
+#!/usr/bin/python3
+def element_at(my_list, idx):
+    if idx < 0 || idx > len(my_list):
+        return None
+    else:
+        print(f"Element at index {idx} is {my_list[idx]}")
