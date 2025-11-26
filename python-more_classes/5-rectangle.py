@@ -61,5 +61,5 @@ class Rectangle():
 
     def __del__(self):
         """Return deleting message"""
-        return "Bye rectangle..."
+        print("Bye rectangle...")
 
