@@ -53,7 +53,4 @@ class Rectangle():
         """ Prints Rectangle with #s' """
         if self.__width == 0 or self.__height == 0:
             return ""
-        for i in range(self.__width):
-            for j in range(self.__height):
-                print(self.__width * "#")
-            print("\n")
+        return "\n".join(["#" * self.__width for _ in range(self.__height)])
