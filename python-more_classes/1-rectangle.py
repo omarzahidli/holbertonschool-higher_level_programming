@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
-
+""" Defines Rectangle """
 class Rectangle():
-    """ Defines Rectangle """
 
     def __init__(self, width=0, height=0):
         self.width = width
