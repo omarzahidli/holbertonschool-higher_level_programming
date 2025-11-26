@@ -10,10 +10,12 @@ class Rectangle():
 
     @property
     def width(self):
+        """ Retrieve the width """
         self.__width
 
     @width.setter
     def width(self, value):
+        """ Set the width with validation. """
         if not isinstance(value, int):
             raise TypeError("value must be an integer")
         if value < 0:
@@ -23,10 +25,12 @@ class Rectangle():
 
     @property
     def height(self):
+        """ Retrieve the height """
         self.__height
 
     @height.setter
     def height(self, value):
+        """ Set the width with validation. """
         if not isinstance(value, int):
             raise TypeError("value must be an integer")
         if value < 0:
@@ -36,8 +40,10 @@ class Rectangle():
 
     @property
     def area(self):
+        """ Return Area """
         return self.__width * self.__height
 
     @property
     def perimeter(self):
+        """ Return Perimeter """
         return (self.__width * self.__height)+2
