@@ -3,4 +3,3 @@
 class Rectangle():
     """ Creates class Rectangle """
     pass
-
