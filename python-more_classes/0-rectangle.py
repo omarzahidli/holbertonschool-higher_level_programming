@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-export class Rectangle():
+""" Returns Minimal Class """
+class Rectangle():
     pass
 
