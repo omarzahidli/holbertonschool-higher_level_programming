@@ -59,7 +59,7 @@ class Rectangle():
         """Return a string representation to recreate the object."""
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
-    def __del__:
+    def __del__(self):
         """Return deleting message"""
         return "Bye rectangle..."
 
