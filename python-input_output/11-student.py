@@ -4,7 +4,7 @@
 Contains a class Square that inherits from
 Rectangle and some methods.
 """
-Rectangle = __import__('9-rectangle').Rectangle
+from 9_rectangle import Rectangle
 
 
 class Square(Rectangle):
