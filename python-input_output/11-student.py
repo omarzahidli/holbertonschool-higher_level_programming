@@ -1,26 +1,31 @@
 #!/usr/bin/python3
-"""Square module.
-
-Contains a class Square that inherits from
-Rectangle and some methods.
-"""
-from 9_rectangle import Rectangle
+"""Student class definition."""
 
 
-class Square(Rectangle):
-    """Defines the Square class that inherits from Rectangle."""
+class Student:
+    """Defines a student."""
 
-    def __init__(self, size):
-        """Initializing for Square object"""
+    def __init__(self, first_name, last_name, age):
+        """Initialize the student."""
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-        self.integer_validator("size", size)
-        super().__init__(size, size)
-        self.__size = size
+    def to_json(self, attrs=None):
+        """Return a dictionary representation of a Student instance.
 
-    def area(self):
-        """Area calculator function"""
-        return self.__size * self.__size
+        If attrs is a list of strings, only return attributes listed.
+        Otherwise, return all attributes.
+        """
+        if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
+            return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
+        return self.__dict__
 
-    def __str__(self):
-        """Printing the Square"""
-        return "[Square] {:d}/{:d}".format(self.__size, self.__size)
+    def reload_from_json(self, json):
+        """Replace all attributes of the Student instance.
+
+        json is a dictionary where each key is an attribute name
+        and each value is the value to assign.
+        """
+        for key, value in json.items():
+            setattr(self, key, value)
