@@ -1,23 +1,14 @@
 #!/usr/bin/python3
-"""Module that fetches a URL using urllib with custom headers."""
+"""Fetches https://intranet.hbtn.io/status using urllib."""
 
 import urllib.request
 
+url = "https://intranet.hbtn.io/status"
 
-def fetch_status():
-    """Fetch and print the status page with custom headers."""
-    url = "https://intranet.hbtn.io/status"
-    headers = {
-        'cfclearance': 'true'
-    }
+with urllib.request.urlopen(url) as response:
+    body = response.read()
 
-    req = urllib.request.Request(url, headers=headers)
-
-    with urllib.request.urlopen(req) as response:
-        body = response.read()
-
-    print(body.decode("utf-8"))
-
-
-if __name__ == "__main__":
-    fetch_status()
+print("Body response:")
+print("\t- type: {}".format(type(body)))
+print("\t- content: {}".format(body))
+print("\t- utf8 content: {}".format(body.decode('utf-8')))
