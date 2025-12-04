@@ -7,8 +7,15 @@ import sys
 
 if __name__ == "__main__":
     url = sys.argv[1]
-    data = urllib.parse.urlencode({'email': sys.argv[2]}).encode('utf-8')
+    email = sys.argv[2]
+
+    # Encode the email as form data
+    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
+
+    # Make POST request
     req = urllib.request.Request(url, data=data)
     with urllib.request.urlopen(req) as response:
         body = response.read()
-    print(body.decode('utf-8'))
+
+    # Print response decoded in utf-8
+    print(body.decode("utf-8"))
