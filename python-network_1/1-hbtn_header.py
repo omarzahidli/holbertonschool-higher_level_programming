@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Fetches the X-Request-Id from the response header."""
-
 import urllib.request
 import sys
 
