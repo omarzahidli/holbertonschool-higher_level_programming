@@ -15,5 +15,5 @@ if __name__ == "__main__":
         response.raise_for_status()
         user_data = response.json()
         print(user_data.get("id"))
-    except requests.exceptions.RequestException as e:
-        print("Error: {}".format(e))
+    except requests.exceptions.RequestException:
+        print("None")
