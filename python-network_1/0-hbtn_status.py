@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-"""Get url with headers"""
+""" Get url with headers """
 
 
 import urllib.request
+
+""" Import lib  """
+
 url = "https://intranet.hbtn.io/status"
 headers = {'cfclearance': 'true'}
 req = urllib.request.Request(url, headers)
