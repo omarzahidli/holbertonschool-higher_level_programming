@@ -8,5 +8,5 @@ url = "https://intranet.hbtn.io/status"
 body = requests.get(url)
 
 print("Body response:")
-print("\t- type: {}".format(type(body.text))
+print("\t- type: {}".format(type(body.text)))
 print("\t- content: {}".format(body.text))
