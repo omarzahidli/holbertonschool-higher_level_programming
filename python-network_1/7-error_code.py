@@ -14,5 +14,5 @@ if __name__ == "__main__":
         else:
             print(response.text)
     except requests.exceptions.RequestException as e:
-        # This will catch network errors, timeouts, etc.
-        print("Error code: {}".format(e.response.status_code if e.response else "N/A"))
+        status = e.response.status_code if e.response else "N/A"
+        print("Error code: {}".format(status))
