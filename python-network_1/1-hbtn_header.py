@@ -3,9 +3,10 @@
 
 import urllib.request
 import sys
-"""Fetches the X-Request-Id from the response header."""
 
 url = sys.argv[1]
+
 with urllib.request.urlopen(url) as response:
     head = response.headers.get("X-Request-Id")
+
 print(head)
