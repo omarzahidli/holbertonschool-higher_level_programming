@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """ View Content """
 
-import urllib.request
+import requests
 
 url = "https://intranet.hbtn.io/status"
 
-with urllib.request.urlopen(url) as response:
-    body = response.read()
+body = requests.get(url)
 
 print("\t- type: {}".format(type(body)))
 print("\t- content: {}".format(body))
