@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 import urllib.request
-
-url = input()
-headers = { 'cfclearance': 'true' }
+import sys
+url = sys.argv[1]
 with urllib.request.urlopen(url) as response:
-    body = response.read()
-print(body.decode("utf-8").find("X-Request-Id"))
+    head = response.headers.get("X-Request-Id")
+print(head)
