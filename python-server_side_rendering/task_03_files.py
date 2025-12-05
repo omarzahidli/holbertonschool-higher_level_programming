@@ -55,13 +55,10 @@ def get_data():
 def products():
     json_path = os.path.join(os.path.dirname(__file__), "products.json")
     
-    with open(json_path, "r") as file:
-        data = json.load(file)
-
     products_list = data.get("products", [])
 
 
-    return render_template('products.html', products=products_list)
+    return render_template('products.html', products=get_data())
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
