@@ -53,11 +53,6 @@ def get_data():
 
 @app.route('/products')
 def products():
-    json_path = os.path.join(os.path.dirname(__file__), "products.json")
-    
-    products_list = data.get("products", [])
-
-
     return render_template('products.html', products=get_data())
 
 if __name__ == '__main__':
