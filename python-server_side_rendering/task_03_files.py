@@ -5,9 +5,6 @@ import os
 
 app = Flask(__name__)
 
-# -----------------------------------
-# JSON Reader
-# -----------------------------------
 def read_json():
     base_dir = os.path.dirname(__file__)
     json_path = os.path.join(base_dir, "products.json")
@@ -15,7 +12,6 @@ def read_json():
     with open(json_path, "r") as f:
         data = json.load(f)
 
-    # Normalize JSON into uniform dict for template
     products = []
     for item in data.get("products", []):
         products.append({
@@ -28,9 +24,6 @@ def read_json():
     return products
 
 
-# -----------------------------------
-# CSV Reader
-# -----------------------------------
 def read_csv():
     base_dir = os.path.dirname(__file__)
     csv_path = os.path.join(base_dir, "products.csv")
@@ -51,15 +44,11 @@ def read_csv():
     return products
 
 
-# -----------------------------------
-# Route: /products
-# -----------------------------------
-@app.route("/products")
-def products_page():
+@app.home("/")
+def home():
     source = request.args.get("source")
     product_id = request.args.get("id")
 
-    # Validate source
     if source not in ["json", "csv"]:
         return render_template(
             "product_display.html",
@@ -67,17 +56,14 @@ def products_page():
             products=None
         )
 
-    # Load appropriate data
     if source == "json":
         products = read_json()
     else:
         products = read_csv()
 
-    # If no ID, display all products
     if not product_id:
         return render_template("product_display.html", products=products)
 
-    # Filter by ID
     filtered = [p for p in products if p["id"] == str(product_id)]
 
     if not filtered:
@@ -87,7 +73,6 @@ def products_page():
             products=None
         )
 
-    # Display only filtered item
     return render_template("product_display.html", products=filtered)
 
 
