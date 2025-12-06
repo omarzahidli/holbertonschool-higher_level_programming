@@ -15,7 +15,17 @@ def read_json():
         data = json.load(f)
 
     products = []
-    for item in data.get("products", []):
+
+    if isinstance(data, list):
+        source_items = data
+
+    elif isinstance(data, dict) and "products" in data:
+        source_items = data["products"]
+
+    else:
+        return []
+
+    for item in source_items:
         products.append({
             "id": str(item.get("id")),
             "name": item.get("name"),
