@@ -5,6 +5,7 @@ import os
 
 app = Flask(__name__)
 
+
 def read_json():
     base_dir = os.path.dirname(__file__)
     json_path = os.path.join(base_dir, "products.json")
@@ -44,7 +45,7 @@ def read_csv():
     return products
 
 
-@app.home("/")
+@app.route("/products")
 def home():
     source = request.args.get("source")
     product_id = request.args.get("id")
