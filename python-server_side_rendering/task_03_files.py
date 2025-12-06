@@ -33,7 +33,6 @@ def read_csv():
 
     with open(csv_path, newline="") as f:
         reader = csv.DictReader(f)
-
         for row in reader:
             products.append({
                 "id": row.get("id"),
@@ -46,7 +45,7 @@ def read_csv():
 
 
 @app.route("/products")
-def home():
+def products():
     source = request.args.get("source")
     product_id = request.args.get("id")
 
