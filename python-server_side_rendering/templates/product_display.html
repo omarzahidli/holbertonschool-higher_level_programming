@@ -1,35 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Product Display</title>
     </head>
     <body>
         {% if error %}
-            <p style="color:red;">{{ error }}</p>
+            <h3 style="color: red;">{{ error }}</h3>
         {% endif %}
+
         {% if products %}
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                </tr>
-                <tbody>
-                    {% for p in products %}
-                        <tr>
-                            <td>{{ p.name }}</td>
-                            <td>{{ p.category }}</td>
-                            <td>{{ p.price }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table> 
-        {% elif %}
-            {% if not error %}
-                <p>No products found.</p>
-            {% endif %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+            {% for p in products %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.category }}</td>
+                <td>{{ p.price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
         {% endif %}
     </body>
 </html>
