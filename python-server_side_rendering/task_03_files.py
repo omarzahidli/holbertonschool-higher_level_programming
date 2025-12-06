@@ -14,7 +14,7 @@ def read_json():
         data = json.load(f)
 
     products = []
-    for item in data.get("products", []):
+    for item in data:
         products.append({
             "id": str(item.get("id")),
             "name": item.get("name"),
